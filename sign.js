@@ -43,6 +43,7 @@ const signUp=()=>{
         .then((userCredential) => {
         // Signed in
          var user = userCredential.user;
+         localStorage.setItem("user", JSON.stringify(user.email));
          alert("logged in successfully")
          document.write("logged in successfully")
         
@@ -60,3 +61,27 @@ const signUp=()=>{
   }
 );
  }
+
+
+
+
+
+
+
+
+//  function checkAuthentication() {
+//     return new Promise((resolve, reject) => {
+//       firebase.auth().onAuthStateChanged(function (user) {
+//         console.log(user.email);
+//         localStorage.setItem("user", JSON.stringify(user.email));
+
+//         if (user) {
+//           // User is signed in
+//           resolve(true);
+//         } else {
+//           // No user is signed in
+//           resolve(false);
+//         }
+//       });
+//     });
+//   }

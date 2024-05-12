@@ -34,10 +34,11 @@
         
                 </li>
                 
-                  <li>
-                      <a href = "signup.html" ><h4>SignUp</h4></a>
-          
-                  </li>
+                <li>
+                  <a href="signup.html" id="signupLink"><h4>SignUp</h4></a>
+                  
+                  <a  id="logoutLink" style="display: none;"><h4 onclick="ClearUser()" class="logout">Logout</h4></a>
+                </li>
                   
               </ul>
             </div>
@@ -411,5 +412,38 @@ document.querySelectorAll('.Add-to-favorites').forEach((button, index) => {
     }
 
     </script>
+  
+
+
+
+
+
+
+    <script>
+      // Check if the "user" key exists in localStorage
+const userLoggedIn = localStorage.getItem("user");
+
+// Get the SignUp and Logout links from the navigation bar
+const signUpLink = document.getElementById("signupLink");
+const logoutLink = document.getElementById("logoutLink");
+
+if (userLoggedIn) {
+  // User is logged in, show the Logout link and hide the SignUp link
+  signUpLink.style.display = "none";
+  logoutLink.style.display = "block";
+} else {
+  // User is not logged in, show the SignUp link and hide the Logout link
+  signUpLink.style.display = "block";
+  logoutLink.style.display = "none";
+}
+
+
+function ClearUser(){
+  // Remove a specific item from localStorage
+localStorage.removeItem('user');
+alert("logout successfull")
+
+}
+      </script>
 </body>
 </html> 
